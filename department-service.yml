@@ -1,13 +1,6 @@
-server:
-  port: 8081
-
-
 spring:
   application:
     name: department-service
-
-  config:
-    import: "configserver:http://localhost:8080"
 
   datasource:
     url: jdbc:postgresql://localhost:5432/bdmicio
@@ -19,12 +12,22 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-      dialect: org.hibernate.dialect.PostgreSQLDialect
-      cache:
-        use_query_cache: false
     open-in-view: false
+    properties:
+      hibernate:
+        '[dialect]': org.hibernate.dialect.PostgreSQLDialect
+        cache:
+          '[use_query_cache]': false
 
   data:
     jpa:
       repositories:
-        enabled: true ,esto de aca sirve para el microservicio department service 
+        enabled: true
+
+server:
+  port: 8081
+management:
+   endpoints:
+        web:
+           exposure:
+               include:*
