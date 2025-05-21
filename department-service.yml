@@ -5,28 +5,25 @@ spring:
   config:
     import: "configserver:http://localhost:8888"
 
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bdmicio
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      cache:
+        use_query_cache: false
+    open-in-view: false
+
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
 server:
   port: 8270
-
-datasource:
-  url: jdbc:postgresql://localhost:5432/bdmicio
-  username: postgres
-  password: 123
-  driver-class-name: org.postgresql.Driver
-
-# Hikari Connection Pool (opcional pero recomendado para producción)
-# Aquí podrías agregar propiedades específicas de Hikari si deseas
-
-jpa:
-  show-sql: true
-  hibernate:
-    ddl-auto: update
-    dialect: org.hibernate.dialect.PostgreSQLDialect
-    cache:
-      use_query_cache: false
-  open-in-view: false
-
-data:
-  jpa:
-    repositories:
-      enabled: true
