@@ -1,3 +1,7 @@
+server:
+  port: 8081
+
+
 spring:
   application:
     name: department-service
@@ -25,5 +29,3 @@ spring:
       repositories:
         enabled: true
 
-server:
-  port: 8270
