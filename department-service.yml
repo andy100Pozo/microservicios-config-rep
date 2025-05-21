@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: department-service
+
+  config:
+    import: "configserver:http://localhost:8080"
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bdmicio
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      cache:
+        use_query_cache: false
+    open-in-view: false
+
+  data:
+    jpa:
+      repositories:
+        enabled: true ,esto de aca sirve para el microservicio department service 
