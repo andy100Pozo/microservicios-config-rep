@@ -3,7 +3,7 @@ spring:
     name: department-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/bdmici0
+    url: jdbc:postgresql://localhost:5432/bdmicio
     username: postgres
     password: 123
     driver-class-name: org.postgresql.Driver
